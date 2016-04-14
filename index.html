@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+  <title>[wait...]</title>
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <style>
+  body {
+    margin: 0;
+    padding: 5px;
+    -webkit-text-size-adjust: 100%;
+  }
+  </style>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+</head>
+<body>
+
+<p>wait...</p>
+
+<script type="text/plain" id="my_html">
+<html>
+  <head>
+    <title>localpad</title>
+
+    <script>
+    function create_btn_click(){
+      alert("TODO: implement");
+    }
+    [[lt]]/script>
+  </head>
+  <body>
+    <h1>localpad</h1>
+    <p>This is an offline notepad!</p>
+    <p><button onclick="create_btn_click();">Create new pad</button></p>
+  </body>
+</html>
+</script>
+
+<script>
+
+jQuery(function(){
+  var html = $('#my_html').text();
+  html = html.replace(/\[\[lt\]\]/g,"<").replace(/[\n\r](?:[ \t]*)?/g,"");
+
+  // redirect
+  location.href = "data:text/html," + html;
+});
+
+</script>
+
+</body>
+</html>
